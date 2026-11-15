@@ -1,0 +1,327 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body
+ {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #31372b;
+    color: white;
+}
+
+header {
+    background: #102541;
+    padding: 1px;
+    text-align: center;
+}
+
+header h2 {
+    margin: 0;
+    color: #7ee7ff;
+}
+
+.page {
+    display: none;
+    padding: 35px 7%;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Home Page */
+
+#home {
+    min-height: 85vh;
+    text-align: center;
+    padding-top: 150px;
+    background: linear-gradient(#081426bb, #081426ee),
+   
+}
+
+h1 {
+    font-size: 42px;
+}
+
+p {
+    color: #c5d2e2;
+    line-height: 1.6;
+}
+
+/* Buttons */
+
+button {
+    background: #62dff5;
+    color: #071426;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background: white;
+}
+
+.back {
+    background: #263d59;
+    color: white;
+    margin: 0 0 20px;
+}
+
+/* Planet Boxes */
+
+.planet-boxes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.planet, .object {
+    background: #6c7a89;
+    border: 1px solid #29496b;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.planet:hover, .object:hover {
+    border-color: #62dff5;
+}
+
+.planet img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+/* Object Gallery */
+
+.object-boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.object img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.object h3, .planet h2 {
+    margin-bottom: 5px;
+}
+
+/* Details Page */
+/* --- PAGE 4: FULL-SCREEN OBJECT DETAILS --- */
+
+#objectDetails.active {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 35px 7%;
+  overflow-y: auto;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Positions text cleanly toward the bottom */
+}
+
+/* Dark gradient overlay so text remains readable over any photo */
+#objectDetails::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 20, 38, 0.35) 0%,
+    rgba(8, 20, 38, 0.75) 60%,
+    rgba(8, 20, 38, 0.95) 100%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Float the Back button at the top-left */
+#objectDetails .back {
+  position: fixed;
+  top: 100px;
+  left: 7%;
+  z-index: 110;
+  background: rgba(16, 37, 65, 0.75);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(126, 231, 255, 0.3);
+}
+
+/* Remove the box container */
+#details {
+  max-width: 850px;
+  width: 100%;
+  margin: 0;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* Stretch the object image full-screen in the background */
+#details img {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  max-height: none;
+  object-fit: cover;
+  border-radius: 0;
+  z-index: -2;
+}
+
+/* Remove the box-like row borders */
+.detail-row {
+  border-bottom: none;
+  padding: 6px 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+.detail-row b {
+  color: #7ee7ff;
+}
+
+#details h1,
+#details h2,
+#details p {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+
+/* Mobile Responsive */
+
+@media (max-width: 650px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    .planet-boxes {
+        grid-template-columns: 1fr;
+    }
+
+    .object-boxes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .page {
+        padding: 25px 5%;
+    }
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 2%;
+    background: #141414;
+    color: white;
+    position: relative;
+    z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo span {
+    font-size: 28px;
+}
+
+.logo h2 {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+/* NAVIGATION */
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.nav-links a:hover {
+    color: #00d9ff;
+}
+
+/* THREE LINE MENU */
+.menu-container {
+    position: relative;
+}
+
+.menu-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* DROPDOWN */
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    width: 180px;
+    background: #10243d;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.dropdown a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+}
+
+.dropdown a:hover {
+    background: #16466a;
+    border-radius: 5px;
+}
+
+.dropdown.show {
+    display: block;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 650px) {
+    .nav-links {
+        display: none;
+    }
+
+    .logo h2 {
+        font-size: 16px;
+    }
+}
+* {
+    box-sizing: border-box;
+}
+

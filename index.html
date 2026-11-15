@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abandoned But Not Forgotten</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<header class="navbar">
+
+    <!-- Logo -->
+    <div class="logo">
+        <img src="https://www.nasa.gov/wp-content/uploads/2023/01/nasa-logo-web-6rgb.png" alt="Space Museum Logo" hight="100px" width="100px"/>
+        <h2>SPACE MUSEUM</h2>
+    </div>
+
+    <!-- Navigation Links -->
+   
+    <!-- Three Line Menu -->
+    <div class="menu-container">
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <div class="dropdown" id="dropdown">
+            <a href="#" onclick="showPage('home'); toggleMenu()">Home</a>
+            <a href="#" onclick="showPage('planets'); toggleMenu()">Explore Museum</a>
+            <a href="#about" onclick="toggleMenu()">About Project</a>
+            
+        </div>
+    </div>
+
+</header>
+
+
+<!-- Home Page -->
+<section id="home" class="page active">
+    <h1>ABANDONED BUT NOT FORGOTTEN</h1>
+    <p>Every Forgotten Object Has a Story</p>
+    <p>Explore spacecraft, landers and rovers left on Moon and Mars.</p>
+
+    <button onclick="showPage('planets')">
+        EXPLORE THE MUSEUM
+    </button>
+</section>
+
+<!-- Planet Selection -->
+<section id="planets" class="page">
+    <button class="back" onclick="showPage('home')">← Back</button>
+    <h1>Choose a Planet</h1>
+
+    <div class="planet-boxes">
+
+        <div class="planet" onclick="showObjects('Moon')">
+            <img src="https://www.theclickcommunity.com/blog/wp-content/uploads/2011/07/final-moon-e1310706461293.jpg" alt="moon">
+            <h2>MOON</h2>
+        </div>
+
+        <div class="planet" onclick="showObjects('Mars')">
+            <img src="https://www.openaccessgovernment.org/wp-content/uploads/2021/04/dreamstime_xxl_121672573-scaled.jpg" alt="mars">
+            <h2>MARS</h2>
+        </div>
+
+    </div>
+    
+</section>
+
+<!-- PAGE 3: OBJECT GALLERY -->
+  <section id="gallery" class="page">
+    <button class="back" onclick="showPage('planets')">← Back</button>
+    <h1 id="planetTitle">Moon Objects</h1>
+    <div id="objectList" class="object-boxes"></div>
+  </section>
+
+  <!-- PAGE 4: OBJECT DETAILS (FULL-SCREEN) -->
+  <section id="objectDetails" class="page">
+    <button class="back" onclick="showPage('gallery')">← Back</button>
+    <div id="details"></div>
+  </section>
+
+ 
+<script src="script.js"></script>
+</body>
+</html>
